@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Http\Requests\Admin\BusinessProfile;
+
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
+
+class DestroyBusinessProfile extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize(): bool
+    {
+        return Gate::allows('admin.business-profile.delete', $this->businessProfile);
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules(): array
+    {
+        return [];
+    }
+}
